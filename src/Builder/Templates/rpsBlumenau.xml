@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PedidoEnvioRPS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                xmlns="http://nfse.blumenau.sc.gov.br">
+    <Cabecalho Versao="1" xmlns="">
+        <CPFCNPJRemetente>
+            <{{CPFCNPJPrestador}}>{{cpfcnpjPrestador}}</{{CPFCNPJPrestador}}>
+        </CPFCNPJRemetente>
+</Cabecalho>
+<RPS xmlns="">
+    <ChaveRPS>
+        <InscricaoPrestador>{{inscricaoMun}}</InscricaoPrestador>
+        <SerieRPS>{{serieRPS}}</SerieRPS>
+        <NumeroRPS>{{numeroRPS}}</NumeroRPS>
+    </ChaveRPS>
+    <TipoRPS>{{tipoRPS}}</TipoRPS>
+    <DataEmissao>{{dataEmissao}}</DataEmissao>
+    <StatusRPS>{{statusRPS}}</StatusRPS>
+    <TributacaoRPS>{{tributacaoRPS}}</TributacaoRPS>
+    <ValorServicos>{{valorServicos}}</ValorServicos>
+    <ValorDeducoes>{{valorDeducoes}}</ValorDeducoes>
+    <ValorPIS>{{valorPIS}}</ValorPIS>
+    <ValorCOFINS>{{valorCOFINS}}</ValorCOFINS>
+    <ValorINSS>{{valorINSS}}</ValorINSS>
+    <ValorIR>{{valorIR}}</ValorIR>
+    <ValorCSLL>{{valorCSLL}}</ValorCSLL>
+    <CodigoServico>{{codigoServico}}</CodigoServico>
+    <AliquotaServicos>{{aliquota}}</AliquotaServicos>
+    <ISSRetido>{{ISSRetido}}</ISSRetido>
+    <CPFCNPJTomador>
+        <{{CPFCNPJTomador}}>{{cpfcnpjTomador}}</{{CPFCNPJTomador}}>
+    </CPFCNPJTomador>
+    <RazaoSocialTomador>{{razaoSocial}}</RazaoSocialTomador>
+    <EnderecoTomador>
+        <Logradouro>{{endereco}}</Logradouro>
+        <NumeroEndereco>{{numero}}</NumeroEndereco>
+        <Bairro>{{bairro}}</Bairro>
+        <Cidade>{{cidade}}</Cidade>
+        <UF>{{uf}}</UF>
+        <CEP>{{cep}}</CEP>
+    </EnderecoTomador>
+    <EmailTomador>{{email}}</EmailTomador>
+    <Discriminacao>{{discriminacao}}</Discriminacao>
+</RPS>
+</PedidoEnvioRPS>

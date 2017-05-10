@@ -1,0 +1,6 @@
+/vendor
+/.idea
+.env
+composer.lock
+_ide_helper.php
+/*.xml

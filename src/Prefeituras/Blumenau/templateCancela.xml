@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PedidoCancelamentoNFe xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://nfse.blumenau.sc.gov.br">
+    <Cabecalho Versao="1" xmlns="">
+        <CPFCNPJRemetente>
+            <CNPJ>{{cnpj}}</CNPJ>
+        </CPFCNPJRemetente>
+        <transacao>true</transacao>
+    </Cabecalho>
+    <Detalhe xmlns="">
+        <ChaveNFe>
+            <InscricaoPrestador>{{inscMun}}</InscricaoPrestador>
+            <NumeroNFe>{{numNfse}}</NumeroNFe>
+        </ChaveNFe>
+    </Detalhe>
+</PedidoCancelamentoNFe>
