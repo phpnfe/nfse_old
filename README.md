@@ -8,7 +8,6 @@ Municípios implementados:
 - Blumenau
 - Itajaí
 
-
 ## License
 
 [The MIT License](/LICENSE)
