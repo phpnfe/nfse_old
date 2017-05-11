@@ -9,5 +9,4 @@ Municípios implementados:
 - Itajaí
 
 ## License
-
 [The MIT License](/LICENSE)
