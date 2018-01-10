@@ -119,7 +119,8 @@ class DanfeNFSe
         $tipo = '1';
         $serie = 'A1';
         //$prefix_url = ($this->tpAmb == Config::ambHomologacao) ? 'http://nfse-teste.publica.inf.br/itajai_nfse/NFES' : 'http://nfse.itajai.sc.gov.br/nfse/NFES';
-        $prefix_url = ($this->tpAmb == Config::ambHomologacao) ? 'http://nfse-teste.publica.inf.br/itajai_nfse/NFES' : 'http://nfse.itajai.sc.gov.br/NFES';
+        //2018 $prefix_url = ($this->tpAmb == Config::ambHomologacao) ? 'http://nfse-teste.publica.inf.br/itajai_nfse/NFES' : 'http://nfse.itajai.sc.gov.br/NFES';
+        $prefix_url = ($this->tpAmb == Config::ambHomologacao) ? 'http://nfse-teste.publica.inf.br/itajai_nfse/NFES' : 'https://nfse.itajai.sc.gov.br/NFES';
 
         return $prefix_url . '?cdt_cnpjcpf=' . $this->cpfcnpj .
         '&nfp_numero=' . $nf . '&nfp_tipo=' . $tipo . '&nfp_serie=' . $serie . '&chave_validacao=' . $codVerifi;
