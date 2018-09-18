@@ -7,6 +7,7 @@ Municípios implementados:
 ## Santa Catarina
 - Blumenau
 - Itajaí
+- Balneário Camboriu
 
 ## License
 [The MIT License](/LICENSE)
