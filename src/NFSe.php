@@ -1,11 +1,9 @@
 <?php namespace PhpNFe\NFSe;
 
+use PhpNFe\NFSe\Builder\Rps;
 use PhpNFe\Tools\XML;
-use PhpNFe\Tools\Validar;
-use PhpNFe\NFSe\Prefeituras\Config;
-use PhpNFe\NFSe\Prefeituras\Retorno;
-use Illuminate\Filesystem\Filesystem;
-use PhpNFe\NFSe\Prefeituras\Roteador;
+use PhpNFe\NFSe\Modelos\Modelo;
+use PhpNFe\NFSe\Modelos\Retorno;
 use PhpNFe\Tools\Certificado\Certificado;
 
 /**
@@ -14,6 +12,12 @@ use PhpNFe\Tools\Certificado\Certificado;
 class NFSe
 {
     const version = 'NetForce EmiteNFS-e';
+
+    const mtdAutorizar = 'autorizar';
+    const mtdCancelar  = 'cancelar';
+
+    const ambProducao    = 'producao';
+    const ambHomologacao = 'homologacao';
 
     /**
      * Classe de controle do certificado.
@@ -28,82 +32,85 @@ class NFSe
     protected $codMun;
 
     /**
-     * @var Filesystem
+     * @var Modelo
      */
-    protected $file;
+    protected $modelo;
 
     /**
-     * @var Config
+     * @param Certificado $cert
+     * @param $codMun
      */
-    protected $config;
-
-    /**
-     * Objeto para distribuição das cidades.
-     * @var Roteador
-     */
-    protected $roteador;
-
     public function __construct(Certificado $cert, $codMun)
     {
         $this->certificado = $cert;
-        $this->file = new Filesystem();
-        $this->roteador = new Roteador($codMun, $this->certificado);
         $this->codMun = $codMun;
+
+        $this->loadModelo();
     }
 
     /**
-     * @param $rps
-     * @param $tpAmb
-     * @param $metodo Config::mtAutoriza|Config::mtCancela
-     * @return Retorno
+     * Carregar modelo pelo codigo do municipio.
+     *
+     * @return Modelo
      * @throws \Exception
      */
-    public function enviar($rps, $tpAmb, $metodo)
+    protected function loadModelo()
     {
-        $config = Config::getMethodInfo($tpAmb, $this->codMun, $metodo);
+        $class = 'PhpNFe\NFSe\Prefeituras\M' . $this->codMun . '\Modelo';
+        if (! class_exists($class)) {
+            throw new \Exception("Modelo do municipio [$this->codMun] nao implementado");
+        }
 
-        return $this->roteador->retorno($this->codMun, $rps, $config);
+        return $this->modelo = new $class($this->codMun, $this->certificado);
+    }
+
+    /**
+     * Inciiar manipulador da RPS.
+     *
+     * @return Rps
+     */
+    public function makeRps()
+    {
+        return new Rps($this->codMun);
     }
 
     /**
      * Autorizar.
-     * @param $rps
-     * @param $tpAmb
+     *
+     * @param $xml
+     * @param $amb
      * @return Retorno
      */
-    public function autorizar($rps, $tpAmb)
+    public function autorizar($xml, $amb)
     {
-        return $this->enviar($rps, $tpAmb, Config::mtAutoriza);
+        return $this->modelo->autorizar($xml, $amb);
     }
 
     /**
      * Cancelar.
+     *
      * @param $numNFse
      * @param $cnpj
      * @param $inscMun
-     * @param $codMun
      * @param $motivo
      * @param $tpAmb
      * @return Retorno
      */
-    public function cancela($numNFse, $cnpj, $inscMun, $codMun, $motivo, $tpAmb)
+    public function cancela($numNFse, $cnpj, $inscMun, $motivo, $amb)
     {
-        $xml = $this->roteador->montarCancela($numNFse, $cnpj, $inscMun, $codMun, $motivo);
-
-        return $this->enviar($xml, $tpAmb, Config::mtCancela);
+        return $this->modelo->cancelar($numNFse, $cnpj, $inscMun, $motivo, $amb);
     }
 
     /**
      * Validar um xml.
+     *
      * @param $xml
      * @param $metodo
      * @return array|bool
      */
     public function validarXML($xml, $metodo)
     {
-        $path = __DIR__ . '/Prefeituras/' . Config::getCidade($this->codMun) . '/schemas/' . Config::getSchema($this->codMun, $metodo) . '.xsd';
-
-        return Validar::validar($xml, $path);
+        return $this->modelo->validarXML($xml, $metodo);
     }
 
     /**
@@ -115,24 +122,6 @@ class NFSe
      */
     public function assinar($xml)
     {
-        // Descorbri o nome da cidade
-        $cidade = strtolower($this->roteador->distribuir($this->codMun));
-
-        switch ($cidade) {
-
-            case 'blumenau':
-                $dom = XML::createByXml($xml);
-                \PhpNFe\NFSe\Prefeituras\Blumenau\Sign::signRPS($dom, $this->certificado);
-                \PhpNFe\NFSe\Prefeituras\Blumenau\Sign::sign($dom, $this->certificado);
-
-                return $dom->saveXML();
-
-            case 'itajai':
-                return $this->certificado->assinarXML($xml, 'InfRps');
-
-            default:
-                throw new \Exception('Cidade nao implementada %s para assinar', $cidade);
-                break;
-        }
+        return $this->modelo->assinar($xml);
     }
 }

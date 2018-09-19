@@ -149,6 +149,74 @@ class Config
                 'rps' => 'Rps',
             ],
         ],
+
+        // Balneario Camboriu
+        '4202008' => [
+            self::ambProducao => [
+                self::mtAutoriza => [
+                    'method' => 'GerarNfse',
+                    'op' => 'GerarNfseEnvio',
+                    'versao' => '1',
+                    'url' => 'http://nfse.itajai.sc.gov.br/nfse_integracao/Services?wsdl',
+                ],
+                self::mtCancela => [
+                    'method' => 'CancelarNfse',
+                    'op' => 'CancelarNfseEnvio',
+                    'versao' => '1',
+                    'url' => 'http://nfse.itajai.sc.gov.br/nfse_integracao/Services?wsdl',
+                ],
+                self::mtCartaCorrecao => [
+                    'method' => 'CartaCorrecaoNfseEnvio',
+                    'op' => 'CartaCorrecaoNfseEnvio',
+                    'versao' => '1',
+                    'url' => 'http://nfse.itajai.sc.gov.br/nfse_integracao/Services?wsdl',
+                ],
+            ],
+            self::ambHomologacao => [
+                self::mtAutoriza => [
+                    'method' => 'GerarNfse',
+                    'op' => 'GerarNfseEnvio',
+                    'versao' => '1',
+                    'url' => 'http://nfse-teste.publica.inf.br/itajai_nfse_integracao/Services?wsdl',
+                ],
+                self::mtCancela => [
+                    'method' => 'CancelarNfse',
+                    'op' => 'CancelarNfseEnvio',
+                    'versao' => '1',
+                    'url' => 'http://nfse-teste.publica.inf.br/itajai_nfse_integracao/Services?wsdl',
+                ],
+            ],
+
+            'configs' => [
+                'natOp' => [
+                    '101' => '101',
+                    '111' => '111',
+                    '121' => '121',
+                    '201' => '201',
+                    '301' => '301',
+                    '501' => '501',
+                    '511' => '511',
+                    '541' => '541',
+                    '551' => '551',
+                    '601' => '601',
+                    '701' => '701',
+                ],
+                'tipoRPS' => [
+                    '1' => '1',
+                    '2' => '2',
+                    '3' => '3',
+                ],
+                'statusRPS' => [
+                    'N' => '1',
+                    'C' => '2',
+                ],
+                'boolean' => [
+                    'true' => '1',
+                    'false' => '2',
+                ],
+                'rps' => 'Rps',
+            ],
+        ],
     ];
 
     protected static $pedidos = [
@@ -163,6 +231,7 @@ class Config
                 'schema' => 'PedidoCancelamentoNFe_v01',
             ],
         ],
+
         // Itajai
         '4208203' => [
             self::mtAutoriza => [

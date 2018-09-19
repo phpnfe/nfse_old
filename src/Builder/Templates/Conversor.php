@@ -3,7 +3,7 @@
 namespace PhpNFe\NFSe\Builder\Templates;
 
 /**
- * Conversor para a montagem do RPS.
+ * Convebtn-warningrsor para a montagem do RPS.
  * Class Conversor.
  */
 class Conversor

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CancelarNfseEnvio xmlns="http://www.publica.inf.br">
+    <Pedido>
+        <InfPedidoCancelamento id="assinar">
+            <IdentificacaoNfse>
+                <Numero>{{numNfse}}</Numero>
+                <Cnpj>{{cnpj}}</Cnpj>
+                <InscricaoMunicipal>{{inscMun}}</InscricaoMunicipal>
+                <CodigoMunicipio>{{codMun}}</CodigoMunicipio>
+            </IdentificacaoNfse>
+            <CodigoCancelamento>C999</CodigoCancelamento>
+            <MotivoCancelamento>{{motivo}}</MotivoCancelamento>
+        </InfPedidoCancelamento>
+    </Pedido>
+</CancelarNfseEnvio>
