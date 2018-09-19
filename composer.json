@@ -18,10 +18,6 @@
         "besimple/soap-client" : "0.2.*@dev"
     },
 
-    "require-dev"      : {
-        "phpunit/phpunit": "4.8.*"
-    },
-
     "autoload"         : {
         "psr-4": {
             "PhpNFe\\NFSe\\": "src/"
