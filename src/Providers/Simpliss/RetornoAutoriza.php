@@ -1,5 +1,6 @@
 <?php namespace PhpNFe\NFSe\Providers\Simpliss;
 
+use Carbon\Carbon;
 use Illuminate\Support\Arr;
 use PhpNFe\NFSe\Providers\Retorno as BaseRetorno;
 
@@ -64,6 +65,21 @@ class RetornoAutoriza extends BaseRetorno
     public function getNumProt()
     {
         return Arr::get($this->data, $this->pathOk . '.CodigoVerificacao', '');
+    }
+
+    /**
+     * Retorna a data do evento.
+     *
+     * @return Carbon
+     */
+    public function getData()
+    {
+        $data = Arr::get($this->data, $this->pathOk . '.DataEmissao', '');
+        if ($data == '') {
+            return Carbon::now();
+        }
+
+        return Carbon::createFromFormat(Carbon::ATOM, $data);
     }
 
     /**

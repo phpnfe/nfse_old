@@ -1,5 +1,6 @@
 <?php namespace PhpNFe\NFSe\Providers\Simpliss;
 
+use Carbon\Carbon;
 use Illuminate\Support\Arr;
 use PhpNFe\NFSe\Providers\Retorno as BaseRetorno;
 
@@ -64,6 +65,21 @@ class RetornoCancela extends BaseRetorno
     public function getNumProt()
     {
         return '';
+    }
+
+    /**
+     * Retorna a data do evento.
+     *
+     * @return Carbon
+     */
+    public function getData()
+    {
+        $data = Arr::get($this->data, $this->pathOk . '.DataHoraCancelamento', '');
+        if ($data == '') {
+            return Carbon::now();
+        }
+
+        return Carbon::createFromFormat(Carbon::ATOM, $data);
     }
 
     /**

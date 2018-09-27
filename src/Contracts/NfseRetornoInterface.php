@@ -1,5 +1,7 @@
 <?php namespace PhpNFe\NFSe\Contracts;
 
+use Carbon\Carbon;
+
 interface NfseRetornoInterface
 {
     /**
@@ -25,6 +27,13 @@ interface NfseRetornoInterface
      * @return string
      */
     public function getNumProt();
+
+    /**
+     * Retorna a data do evento.
+     *
+     * @return Carbon
+     */
+    public function getData();
 
     /**
      * Retorna o protocolo como XML.
