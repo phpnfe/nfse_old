@@ -1,0 +1,18 @@
+<CancelarNfseResult>
+    <Cancelamento>
+        <Confirmacao>
+            <Pedido>
+                <InfPedidoCancelamento>
+                    <IdentificacaoNfse>
+                        <Cnpj>{{cnpjPrestador}}</Cnpj>
+                        <InscricaoMunicipal>{{inscricaoMunicipal}}</InscricaoMunicipal>
+                        <NumeroNFe>{{numNfse}}</NumeroNFe>
+                        <CodigoMunicipio>{{codMun}}</CodigoMunicipio>
+                        <CodigoCancelamento>{{codCan}}</CodigoCancelamento>
+                        <DataCancelamento>{{dataCan}}</DataCancelamento>
+                    </IdentificacaoNfse>
+                </InfPedidoCancelamento>
+            </Pedido>
+        </Confirmacao>
+    </Cancelamento>
+</CancelarNfseResult>
