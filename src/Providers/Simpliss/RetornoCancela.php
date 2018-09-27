@@ -79,7 +79,9 @@ class RetornoCancela extends BaseRetorno
             return Carbon::now();
         }
 
-        return Carbon::createFromFormat(Carbon::ATOM, $data);
+        $data = substr($data, 0, 19);
+
+        return Carbon::createFromFormat('Y-m-d\TH:i:s', $data);
     }
 
     /**
