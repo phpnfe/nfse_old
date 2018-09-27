@@ -82,6 +82,7 @@ class Config
                 'rps' => 'RPS',
             ],
         ],
+
         // Itajaí
         '4208203' => [
             self::ambProducao => [
@@ -149,6 +150,60 @@ class Config
                 'rps' => 'Rps',
             ],
         ],
+
+        // Balneario Camboriu
+        '4202008' => [
+            self::ambProducao => [
+                self::mtAutoriza => [
+                    'method' => 'GerarNfse',
+                    'op' => 'GerarNfseEnvio',
+                    'versao' => '1',
+                    'url' => 'http://nfse.itajai.sc.gov.br/nfse_integracao/Services?wsdl',
+                ],
+                self::mtCancela => [
+                    'method' => 'CancelarNfse',
+                    'op' => 'CancelarNfseEnvio',
+                    'versao' => '1',
+                    'url' => 'http://nfse.itajai.sc.gov.br/nfse_integracao/Services?wsdl',
+                ]
+            ],
+            self::ambHomologacao => [
+                self::mtAutoriza => [
+                    'method' => 'RecepcionarLoteRps',
+                    //'op' => 'RecepcionarLoteRps',
+                    //'versao' => '1',
+                    //'url' => 'http://wshomologacao.simplissweb.com.br/nfseservice.svc?wsdl',
+                ],
+                self::mtCancela => [
+                    'method' => 'CancelarNfse',
+                    //'op' => 'CancelarNfseEnvio',
+                    //'versao' => '1',
+                    //'url' => 'http://wshomologacao.simplissweb.com.br/nfseservice.svc?wsdl',
+                ],
+            ],
+
+            'configs' => [
+                'natOp' => [
+                    '101' => '1',
+                    '111' => '2',
+                    '201' => '3',
+                ],
+                'tipoRPS' => [
+                    '1' => '1',
+                    '2' => '2',
+                    '3' => '3',
+                ],
+                'statusRPS' => [
+                    'N' => '1',
+                    'C' => '2',
+                ],
+                'boolean' => [
+                    'true' => '1',
+                    'false' => '2',
+                ],
+                'rps' => 'InformacaoNfse',
+            ],
+        ],
     ];
 
     protected static $pedidos = [
@@ -163,6 +218,7 @@ class Config
                 'schema' => 'PedidoCancelamentoNFe_v01',
             ],
         ],
+
         // Itajai
         '4208203' => [
             self::mtAutoriza => [
@@ -174,10 +230,24 @@ class Config
                 'schema' => 'schema_nfse_v03',
             ],
         ],
+
+        // Balneario Camboriu
+        '4202008' => [
+            self::mtAutoriza => [
+                'pedido' => 'RecepcionarLoteRps',
+                //'schema' => 'nfse_3',
+                'schema' => 'servico_enviar_lote_rps_envio',
+            ],
+            self::mtCancela => [
+                'pedido' => 'CancelarNfse',
+                'schema' => 'servico_cancelar_nfse_envio',
+            ],
+        ],
     ];
 
     const blumenau = 'Blumenau';
     const itajai = 'Itajai';
+    const balnearioCamboriu = 'BalnearioCamboriu';
 
     /**
      * @param $cod - Código Municipal da cidade.
@@ -190,6 +260,8 @@ class Config
                 return self::blumenau;
             case '4208203':
                 return self::itajai;
+            case '4202008':
+                return self::balnearioCamboriu;
             default:
                 return '';
 
@@ -209,6 +281,8 @@ class Config
                 return '4202404';
             case 'itajai':
                 return '4208203';
+            case 'balneariocamboriu':
+                return '4202008';
             default:
                 throw new \Exception(sprintf('Cidade %s não encontrada!', $cidade));
         }

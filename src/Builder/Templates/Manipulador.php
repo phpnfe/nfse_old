@@ -156,6 +156,57 @@ class Manipulador
     }
 
     /**
+     * Montar rps de Balneario Camboriu.
+     * @return mixed|string
+     */
+    protected function balneariocamboriu()
+    {
+        $xml = file_get_contents(__DIR__ . '/rpsBalnearioCamboriu.xml');
+        $xml = $this->rps->idInfRps == null ? str_replace('{{id}}', '', $xml) : str_replace('{{id}}', $this->rps->idInfRps, $xml);
+
+        $xml = str_replace('{{numeroRPS}}', $this->rps->ideRPS->numeroRPS, $xml);
+        $xml = str_replace('{{serieRPS}}', $this->rps->ideRPS->serieRPS, $xml);
+        $xml = str_replace('{{tipoRPS}}', $this->replaceVars('tipoRPS', $this->rps->ideRPS->tipoRPS), $xml);
+        $xml = str_replace('{{dataEmissao}}', $this->rps->ideRPS->dataEmissao, $xml);
+        $xml = str_replace('{{naturezaOperacao}}', $this->replaceVars('natOp', $this->rps->ideRPS->naturezaOperacao), $xml);
+        $xml = str_replace('{{simplesNacional}}', $this->replaceVars('boolean', $this->rps->prestador->simplesNacional), $xml);
+        $xml = str_replace('{{incentivadorCultural}}', $this->replaceVars('boolean', $this->rps->prestador->incentivadorCultural), $xml);
+        $xml = str_replace('{{statusRPS}}', $this->replaceVars('statusRPS', $this->rps->ideRPS->statusRPS), $xml);
+        $xml = str_replace('{{valorServicos}}', $this->rps->servico->valores->valorServicos, $xml);
+        $xml = str_replace('{{valorPIS}}', $this->rps->servico->valores->valorPIS, $xml);
+        $xml = str_replace('{{valorCOFINS}}', $this->rps->servico->valores->valorCOFINS, $xml);
+        $xml = str_replace('{{valorINSS}}', $this->rps->servico->valores->valorINSS, $xml);
+        $xml = str_replace('{{valorIR}}', $this->rps->servico->valores->valorIR, $xml);
+        $xml = str_replace('{{valorCSLL}}', $this->rps->servico->valores->valorCSLL, $xml);
+        $xml = str_replace('{{ISSRetido}}', $this->replaceVars('boolean', $this->rps->servico->valores->ISSRetido), $xml);
+        $xml = str_replace('{{valorISS}}', $this->rps->servico->valores->valorISS, $xml);
+        $xml = str_replace('{{valorIssRetido}}', $this->rps->servico->valores->valorISSRetido, $xml);
+        $xml = str_replace('{{aliquota}}', $this->rps->servico->valores->aliquota, $xml);
+        $xml = str_replace('{{valorLiquidoNfse}}', $this->rps->servico->valores->valorLiquidoNfse, $xml);
+        //$xml = str_replace('{{descontoCondicionado}}', $this->rps->servico->valores->descontoCondicionado, $xml);
+        //$xml = str_replace('{{descontoIncondicionado}}', $this->rps->servico->valores->descontoIncondicionado, $xml);
+        $xml = str_replace('{{codigoServico}}', $this->rps->servico->codigoServico, $xml);
+        $xml = str_replace('{{discriminacao}}', $this->rps->servico->discriminacao, $xml);
+        $xml = str_replace('{{codMunPrestador}}', $this->rps->servico->codMun, $xml);
+        $xml = $this->CpfCnpjPrestador($xml);
+        $xml = str_replace('{{inscricaoMunicipal}}', $this->rps->prestador->identificacao->inscricaoMun, $xml);
+        $xml = $this->CpfCnpjTomador($xml);
+        $xml = str_replace('{{razaoSocial}}', $this->rps->tomador->identificacao->razaoSocial, $xml);
+        $xml = str_replace('{{endereco}}', $this->rps->tomador->identificacao->endereco->endereco, $xml);
+        $xml = str_replace('{{numero}}', $this->rps->tomador->identificacao->endereco->numero, $xml);
+        $xml = str_replace('{{complemento}}', $this->rps->tomador->identificacao->endereco->complemento, $xml);
+        $xml = str_replace('{{bairro}}', $this->rps->tomador->identificacao->endereco->bairro, $xml);
+        $xml = str_replace('{{codMun}}', $this->rps->tomador->identificacao->endereco->codMun, $xml);
+        $xml = str_replace('{{uf}}', $this->rps->tomador->identificacao->endereco->uf, $xml);
+        $xml = str_replace('{{cep}}', $this->rps->tomador->identificacao->endereco->cep, $xml);
+        $xml = str_replace('{{email}}', $this->rps->tomador->identificacao->contato->email, $xml);
+
+        $this->limpaRPS($xml);
+
+        return $xml;
+    }
+
+    /**
      * Traduzir variaveis de configuracao.
      *
      * @param $var

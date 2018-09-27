@@ -130,6 +130,9 @@ class NFSe
             case 'itajai':
                 return $this->certificado->assinarXML($xml, 'InfRps');
 
+            case 'balneariocamboriu':
+                return $this->certificado->assinarXML($xml, 'LoteRps');
+
             default:
                 throw new \Exception('Cidade nao implementada %s para assinar', $cidade);
                 break;
