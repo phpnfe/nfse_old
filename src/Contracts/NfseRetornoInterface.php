@@ -31,4 +31,9 @@ interface NfseRetornoInterface
      * @return string
      */
     public function getXmlProt();
+
+    /**
+     * @return string
+     */
+    public function getDanfePDF();
 }

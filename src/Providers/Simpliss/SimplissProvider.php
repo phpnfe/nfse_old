@@ -159,6 +159,11 @@ class SimplissProvider extends Provider
                             'Uf'              => $rps->tomador->identificacao->endereco->uf,
                             'Cep'             => $rps->tomador->identificacao->endereco->cep,
                         ],
+
+                        'Contato' => [
+                            'Telefone' => $rps->tomador->identificacao->contato->telefone,
+                            'Email' => $rps->tomador->identificacao->contato->email,
+                        ],
                     ],
                 ],
             ],

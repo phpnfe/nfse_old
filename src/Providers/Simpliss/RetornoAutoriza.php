@@ -90,4 +90,14 @@ class RetornoAutoriza extends BaseRetorno
 
         return $xml;
     }
+
+    /**
+     * @return string
+     */
+    public function getDanfePDF()
+    {
+        //$url = 'https://balneariocamboriu.simplissweb.com.br/contrib/app/nfse/rel/rp_nfse?s=9392754&e=01799858000120';
+        // O parametro &s= nao eh retornado
+        return null;
+    }
 }

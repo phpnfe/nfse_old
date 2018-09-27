@@ -89,4 +89,12 @@ class RetornoCancela extends BaseRetorno
 
         return $xml;
     }
+
+    /**
+     * @return string
+     */
+    public function getDanfePDF()
+    {
+        return '';
+    }
 }
