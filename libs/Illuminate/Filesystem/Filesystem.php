@@ -58,8 +58,11 @@ class Filesystem
 
                     flock($handle, LOCK_UN);
                 }
-            } finally {
+
                 fclose($handle);
+            } catch (\Exception $e) {
+                fclose($handle);
+                throw $e
             }
         }
 
