@@ -62,7 +62,7 @@ class Filesystem
                 fclose($handle);
             } catch (\Exception $e) {
                 fclose($handle);
-                throw $e
+                throw $e;
             }
         }
 
