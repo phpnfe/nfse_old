@@ -40,9 +40,14 @@ abstract class Provider implements NfseProviderInterface
             // Salvar certificados na pasta temp criada.
             $this->nfse->getCert()->salvaChave($certPath);
 
-            return call_user_func_array($callback, [$certPath]);
-        } finally {
+            $ret = call_user_func_array($callback, [$certPath]);
+
             $this->files->deleteDirectory($certPath);
+
+            return $ret;
+        } catch (\Exception $e) {
+            $this->files->deleteDirectory($certPath);
+            throw $e;
         }
     }
 
