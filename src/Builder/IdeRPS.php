@@ -53,6 +53,16 @@ class IdeRPS extends Builder
     /**
      * Natureza de Operacao do RPS.
      *
+     * 100 Tributado no Municipio
+     * 200 Tributado fora do Municipio
+     * 300 Isento
+     * 400 Imune
+     * 500 ISS retido pelo tomador
+     * 900 Exigibilidade suspensa por decisão judicial
+     * 901 Exigibilidade suspensa por procedimento administrativo
+     * 902 ISS Fixo (Soc. Profissionais)
+     *
+     * OLDs:
      * 101 ISS devido para o Município prestador
      * 111 ISS devido para um Município que não é o do prestador
      * 121 ISS Fixo (Soc. Profissionais)

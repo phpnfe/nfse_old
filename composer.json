@@ -1,26 +1,30 @@
 {
-    "name"             : "phpnfe/nfse",
-    "description"      : "Autorização do NFSe dos Municípios",
-    "keywords"         : ["nfse", "php", "netforce"],
-    "license"          : "MIT",
-    "authors"          : [
+    "name"       : "phpnfe/nfse",
+    "description": "Autorização do NFSe dos Municípios",
+    "keywords"   : ["nfse", "php", "netforce"],
+    "license"    : "MIT",
+    "authors"    : [
         {
             "name" : "Bruno Gonçalves",
             "email": "bugotech@gmail.com"
         }
     ],
 
-    "require"          : {
-        "nesbot/carbon"        : "1.*",
-        "illuminate/filesystem": "5.2.*",
-        "phpnfe/tools"         : "2.0.*",
-        "dompdf/dompdf"        : "0.6.*",
-        "besimple/soap-client" : "0.2.*@dev"
+    "require": {
+        "nesbot/carbon"       : "1.*",
+        "dompdf/dompdf"       : "0.6.*",
+        "besimple/soap-client": "0.2.*@dev"
     },
 
-    "autoload"         : {
+    "autoload": {
+        "files": [
+            "libs/Illuminate/Support/helpers.php"
+        ],
+
         "psr-4": {
-            "PhpNFe\\NFSe\\": "src/"
+            "PhpNFe\\NFSe\\" : "src/",
+            "PhpNFe\\Tools\\": "libs/PhpNFe/Tools/",
+            "Illuminate\\"   : "libs/Illuminate/"
         }
     },
 

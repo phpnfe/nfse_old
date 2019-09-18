@@ -21,6 +21,11 @@ class Conversor
             self::CNPJ => 'Cnpj',
             self::CPF => 'Cpf',
         ],
+
+        'balneariocamboriu' => [
+            self::CNPJ => 'Cnpj',
+            self::CPF => 'Cpf',
+        ],
     ];
 
     /**
