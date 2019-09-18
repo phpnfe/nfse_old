@@ -1,6 +1,4 @@
-<?php
-
-namespace PhpNFe\NFSe\Builder;
+<?php namespace PhpNFe\NFSe\Builder;
 
 use PhpNFe\Tools\Builder\Builder;
 use PhpNFe\NFSe\Prefeituras\Config;

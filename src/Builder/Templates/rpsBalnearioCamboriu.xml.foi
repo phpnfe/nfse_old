@@ -1,0 +1,78 @@
+<EnviarLoteRpsEnvio>
+    <LoteRps id="2">
+        <NumeroLote>7</NumeroLote>
+        <Cnpj>01799858000120</Cnpj>
+        <InscricaoMunicipal>926</InscricaoMunicipal>
+        <QuantidadeRps>1</QuantidadeRps>
+        <ListaRps>
+            <Rps>
+                <InfRps id="2">
+                    <IdentificacaoRps>
+                        <Numero>1</Numero>
+                        <Serie>E</Serie>
+                        <Tipo>1</Tipo>
+                    </IdentificacaoRps>
+                    <DataEmissao>2018-09-26</DataEmissao>
+                    <NaturezaOperacao>1</NaturezaOperacao>
+                    <OptanteSimplesNacional>1</OptanteSimplesNacional>
+                    <IncentivadorCultural>2</IncentivadorCultural>
+                    <Status>1</Status>
+                    <Servico>
+                        <Valores>
+                            <ValorServicos>100.00</ValorServicos>
+                            <ValorDeducoes>0.00</ValorDeducoes>
+                            <ValorPis>0.00</ValorPis>
+                            <ValorCofins>0.00</ValorCofins>
+                            <ValorInss>0.00</ValorInss>
+                            <ValorIr>0.00</ValorIr>
+                            <ValorCsll>0.00</ValorCsll>
+                            <IssRetido>2</IssRetido>
+                            <ValorIss>3.00</ValorIss>
+                            <ValorIssRetido>0.00</ValorIssRetido>
+                            <OutrasRetencoes>0.00</OutrasRetencoes>
+                            <BaseCalculo>100.00</BaseCalculo>
+                            <Aliquota>3.00</Aliquota>
+                            <ValorLiquidoNfse>100.00</ValorLiquidoNfse>
+                            <DescontoIncondicionado>0.00</DescontoIncondicionado>
+                            <DescontoCondicionado>0.00</DescontoCondicionado>
+                        </Valores>
+                        <ItemListaServico>12.17</ItemListaServico>
+                        <CodigoTributacaoMunicipio>12.17</CodigoTributacaoMunicipio>
+                        <Discriminacao>INGRESSOS</Discriminacao>
+                        <CodigoMunicipio>4202008</CodigoMunicipio>
+                        <ItensServico>
+                            <Descricao>teste</Descricao>
+                            <Quantidade>1</Quantidade>
+                            <ValorUnitario>100.00</ValorUnitario>
+                            <IssTributavel>1</IssTributavel>
+                        </ItensServico>
+                    </Servico>
+                    <Prestador>
+                        <Cnpj>01799858000120</Cnpj>
+                        <InscricaoMunicipal>926</InscricaoMunicipal>
+                    </Prestador>
+                    <Tomador>
+                        <IdentificacaoTomador>
+                            <CpfCnpj>
+                                <Cpf>00852036965</Cpf>
+                            </CpfCnpj>
+                        </IdentificacaoTomador>
+                        <RazaoSocial>Bruno Goncalves</RazaoSocial>
+                        <Endereco>
+                            <Endereco>RUA GUILHERME POERNER</Endereco>
+                            <Numero>1855</Numero>
+                            <Complemento>BLOCO 4 AP 304</Complemento>
+                            <Bairro>PASSO MANSO</Bairro>
+                            <CodigoMunicipio>4202404</CodigoMunicipio>
+                            <Uf>sc</Uf>
+                            <Cep>89032300</Cep>
+                        </Endereco>
+                        <Contato>
+                            <Email>bugotech@gmail.com</Email>
+                        </Contato>
+                    </Tomador>
+                </InfRps>
+            </Rps>
+        </ListaRps>
+    </LoteRps>
+</EnviarLoteRpsEnvio>

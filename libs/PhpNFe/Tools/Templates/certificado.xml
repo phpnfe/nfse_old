@@ -1,0 +1,4 @@
+<certificado>
+    <chave_pub>{{chave_pub}}</chave_pub>
+    <chave_pri>{{chave_pri}}</chave_pri>
+</certificado>
