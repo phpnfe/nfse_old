@@ -1,0 +1,18 @@
+<CancelarNfseResult>
+    <Cancelamento>
+        <Confirmacao>
+            <Pedido>
+                <InfPedidoCancelamento>
+                    <IdentificacaoNfse>
+                        <Cnpj>01799858000120</Cnpj>
+                        <InscricaoMunicipal>926</InscricaoMunicipal>
+                        <NumeroNFe>21</NumeroNFe>
+                        <CodigoMunicipio>4202008</CodigoMunicipio>
+                        <CodigoCancelamento>2</CodigoCancelamento>
+                        <DataCancelamento>2018-09-28T04:06:20.3719289-03:00</DataCancelamento>
+                    </IdentificacaoNfse>
+                </InfPedidoCancelamento>
+            </Pedido>
+        </Confirmacao>
+    </Cancelamento>
+</CancelarNfseResult>
